@@ -1,5 +1,5 @@
-import * as actions from '../src/actions/Square'
-import * as types from '../src/constants/ActionTypes'
+import * as actions from '../src/actions/Square';
+import * as types from '../src/constants/ActionTypes';
 
 describe('square', () => {
   it('should draw when clicked', () => {
@@ -7,7 +7,7 @@ describe('square', () => {
     const expectedAction = {
       type: types.TICK_SQUARE,
       drawType
-    }
-    expect(actions.onClick(drawType)).toEqual(expectedAction)
-  })
-})
+    };
+    expect(actions.onClick(drawType)).toEqual(expectedAction);
+  });
+});
