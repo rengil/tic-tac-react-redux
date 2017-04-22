@@ -5,6 +5,7 @@ import SquareContainer from './SquareContainer';
 import PlayersContainer from './PlayersContainer';
 import WinnerMessage from '../components/WinnerMessage';
 import { resetAction } from '../actions/Square';
+import { resetPlayersAction } from '../actions/Players';
 
 const Main = props =>
   <div className='main-container'>
@@ -15,6 +16,7 @@ const Main = props =>
     :
       <div>
         <button className='action-button' onClick={props.resetAction}> Reset </button>
+        <button className='action-button' onClick={props.resetPlayersAction}> Change Users </button>
         <SquareContainer />
       </div>
     }
@@ -31,7 +33,8 @@ Main.propTypes = {
   circle: PropTypes.string,
   nought: PropTypes.string,
   winner: PropTypes.winner,
-  resetAction: PropTypes.func.isRequired
+  resetAction: PropTypes.func.isRequired,
+  resetPlayersAction: PropTypes.func.isRequired
 
 };
 
@@ -43,5 +46,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { resetAction }
+  { resetAction, resetPlayersAction }
 )(Main);

@@ -1,4 +1,4 @@
-import { setPlayers } from '../src/actions/Players';
+import { setPlayers, resetPlayers } from '../src/actions/Players';
 import types from '../src/constants/ActionTypes';
 
 describe('square', () => {
@@ -12,5 +12,12 @@ describe('square', () => {
       nought: 'Gil'
     };
     expect(setPlayers(circle, nought)).toEqual(expectedAction);
+  });
+
+  it('should reset the player names', () => {
+    const expectedAction = {
+      type: types.RESET_PLAYERS
+    };
+    expect(resetPlayers()).toEqual(expectedAction);
   });
 });

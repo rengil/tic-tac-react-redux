@@ -2,7 +2,7 @@ import reducer from '../src/reducers/Players';
 import types from '../src/constants/ActionTypes';
 
 describe('reducers', () => {
-  it('should receive p', () => {
+  it('should receive players data', () => {
     expect(
       reducer({ }, {
         type: types.SET_PLAYERS,
@@ -13,6 +13,18 @@ describe('reducers', () => {
       {
         circle: 'Renan',
         nought: 'Gil'
+      }
+    );
+  });
+
+  it('should reset players', () => {
+    expect(
+      reducer({ circle: 'Renan', nought: 'Gil' }, {
+        type: types.RESET_PLAYERS
+      })
+    ).toEqual(
+      {
+
       }
     );
   });

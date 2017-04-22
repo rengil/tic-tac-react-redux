@@ -9,6 +9,13 @@ function playerReducer(state = {}, action) {
       });
     }
 
+    case types.RESET_PLAYERS: {
+      return Object.assign({}, state, {
+        circle: undefined,
+        nought: undefined
+      });
+    }
+
     default:
       return state;
   }
