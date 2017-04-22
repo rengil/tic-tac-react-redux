@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SquareContainer from './SquareContainer';
 import PlayersContainer from './PlayersContainer';
+import LeaderboardContainer from './LeaderboardContainer';
 import WinnerMessage from '../components/WinnerMessage';
 import { resetAction } from '../actions/Square';
 import { resetPlayersAction } from '../actions/Players';
@@ -18,6 +19,7 @@ const Main = props =>
         <button className='action-button' onClick={props.resetAction}> Reset </button>
         <button className='action-button' onClick={props.resetPlayersAction}> Change Users </button>
         <SquareContainer />
+        <LeaderboardContainer />
       </div>
     }
 

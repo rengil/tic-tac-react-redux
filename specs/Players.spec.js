@@ -1,7 +1,7 @@
 import { setPlayers, resetPlayers } from '../src/actions/Players';
 import types from '../src/constants/ActionTypes';
 
-describe('square', () => {
+describe('player', () => {
   it('should receive the player names', () => {
     const circle = 'Renan';
     const nought = 'Gil';
