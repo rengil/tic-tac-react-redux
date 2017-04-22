@@ -6,11 +6,13 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import MainPage from './containers/MainPage';
 import { Router, Route, IndexRoute  } from 'react-router';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
+import thunk from 'redux-thunk';
 
 const store = createStore(
-    reducers
+    reducers,
+    applyMiddleware(thunk)
 );
 
 const history = syncHistoryWithStore(browserHistory, store);

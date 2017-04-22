@@ -21,5 +21,8 @@ module.exports = {
   },
   "rules": {
     "comma-dangle": ["error", "never"],
+    "func-names": ["error", "never"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "jsx-quotes": ["error", "prefer-single"],
   }
 };

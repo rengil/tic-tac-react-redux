@@ -1,5 +1,5 @@
-import * as actions from '../src/actions/Square';
-import * as types from '../src/constants/ActionTypes';
+import actions from '../src/actions/Square';
+import types from '../src/constants/ActionTypes';
 
 describe('square', () => {
   it('should draw when clicked', () => {

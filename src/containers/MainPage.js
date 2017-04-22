@@ -1,12 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import Square from '../components/Square';
 
-const FilterableTable = () => {
-
-    return (
-        <div>
-          Seja bem vindo ao App
-        </div>
-    );
-};
+const FilterableTable = () =>
+  <Square />;
 
 export default FilterableTable;

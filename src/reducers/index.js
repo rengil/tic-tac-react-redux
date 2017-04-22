@@ -1,19 +1,9 @@
-import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
-const initialScream = (state = '', action) => {
-    switch ('INITIAL') {
-        case 'INITIAL':
-            return 'TESTE';
-        default:
-            return 'TESTE';
-    }
-};
+import Square from './Square';
 
-
-const rootReducer = combineReducers({
-    initialScream,
-    routing
+export default combineReducers({
+  Square,
+  routing: routerReducer
 });
-
-export default rootReducer;

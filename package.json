@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node server",
+    "start": "webpack --config ./webpack.config.js --progress --profile --colors && node server",
     "build": "webpack --config ./webpack.config.js --progress --profile --colors"
   },
   "author": "Renan Lazarini Gil",
@@ -17,7 +17,8 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.4.0",
     "react-router-redux": "^4.0.4",
-    "redux": "^3.5.2"
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
@@ -36,6 +37,7 @@
     "eslint-plugin-react": "^6.10.3",
     "jest": "^19.0.2",
     "json-loader": "^0.5.4",
+    "react-redux": "^4.4.8",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1"
   }
