@@ -1,10 +1,19 @@
 import types from '../constants/ActionTypes';
 
-export const onClick = squares => ({
+export const onClick = square => ({
   type: types.TICK_SQUARE,
-  squares
+  square
 });
 
-export const onClickAction = squares => (dispatch) => {
-  dispatch(onClick(squares));
+export const reset = () => ({
+  type: types.RESET
+});
+
+export const onClickAction = square => (dispatch) => {
+  dispatch(onClick(square));
+};
+
+
+export const resetAction = () => (dispatch) => {
+  dispatch(reset(reset));
 };

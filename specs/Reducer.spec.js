@@ -7,7 +7,8 @@ describe('reducers', () => {
       reducer(undefined, {})
     ).toEqual(
       {
-        squares: []
+        squares: [],
+        nextDraw: 'circle'
       }
     );
   });
@@ -25,7 +26,40 @@ describe('reducers', () => {
       })
     ).toEqual(
       {
-        squares
+        squares,
+        nextDraw: 'nought'
+      }
+    );
+  });
+
+  it('should not click a field that is already clicked', () => {
+    const squares = [];
+    squares[2] = 'nought';
+    expect(
+      reducer({ nextDraw: 'nought', squares: [undefined, undefined, 'nought'] }, {
+        type: types.TICK_SQUARE,
+        square: {
+          drawType: 'circle',
+          position: [2]
+        }
+      })
+    ).toEqual(
+      {
+        squares,
+        nextDraw: 'nought'
+      }
+    );
+  });
+
+  it('it should reset my field', () => {
+    expect(
+      reducer({ squares: [undefined, undefined, 'nought'] }, {
+        type: types.RESET
+      })
+    ).toEqual(
+      {
+        squares: [],
+        nextDraw: 'circle'
       }
     );
   });

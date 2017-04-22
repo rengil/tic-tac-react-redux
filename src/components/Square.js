@@ -10,22 +10,33 @@ class Square extends React.Component {
   }
 
   componentDidMount() {
-    this.props.onClickAction(undefined, this.props.position);
+    const square = {};
+    square.drawType = undefined;
+    square.position = this.props.position;
+    this.props.onClickAction(square);
   }
 
   onDraw(e) {
     e.preventDefault();
-    this.props.onClickAction('nought', this.props.position);
+    const square = {};
+    square.drawType = this.props.nextDraw;
+    square.position = this.props.position;
+    this.props.onClickAction(square);
   }
 
   render() {
+    let selected = false;
+    if (this.props.squares[this.props.position]) {
+      selected = true;
+    }
+
     return (
-      <div onClick={this.onDraw} className='tictac-square'>
+      <div onClick={this.onDraw} className={'tictac-square ' + (selected ? ' drawed ' : '')}>
 
         <div className='draw'>
-          { this.props.drawType === 'circle' ?
+          { this.props.squares[this.props.position] === 'circle' ?
             <i className='material-icons'> radio_button_unchecked </i> : ''}
-          { this.props.drawType === 'nought' ? <i className='material-icons'> clear </i> : ''}
+          { this.props.squares[this.props.position] === 'nought' ? <i className='material-icons'> clear </i> : ''}
         </div>
       </div>
     );
@@ -34,12 +45,15 @@ class Square extends React.Component {
 }
 
 Square.propTypes = {
-  square: PropTypes.object,
+  squares: PropTypes.arrayOf(PropTypes.string),
   onClickAction: PropTypes.func.isRequired,
+  position: PropTypes.number,
+  nextDraw: PropTypes.string
 };
 
 const mapStateToProps = state => ({
-  square: state.Square.square
+  squares: state.Square.squares,
+  nextDraw: state.Square.nextDraw
 });
 
 export default connect(
