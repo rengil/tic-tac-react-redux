@@ -9,8 +9,13 @@ export const reset = () => ({
   type: types.RESET
 });
 
+export const checkGameHasEnded = () => ({
+  type: types.CHECK_GAME_ENDED
+});
+
 export const onClickAction = square => (dispatch) => {
   dispatch(onClick(square));
+  dispatch(checkGameHasEnded());
 };
 
 

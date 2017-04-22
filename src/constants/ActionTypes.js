@@ -1,4 +1,5 @@
 const TICK_SQUARE = 'TICK_SQUARE';
 const RESET = 'RESET';
+const CHECK_GAME_ENDED = 'CHECK_GAME_ENDED';
 
-export default { TICK_SQUARE, RESET };
+export default { TICK_SQUARE, RESET, CHECK_GAME_ENDED };
