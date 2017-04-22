@@ -12,10 +12,11 @@ import thunk from 'redux-thunk';
 import './styles/style.less';
 import 'webpack-material-design-icons';
 
-
+/* eslint-disable no-underscore-dangle */
 const store = createStore(
     reducers,
-    applyMiddleware(thunk)
+    applyMiddleware(thunk),
+
 );
 
 const history = syncHistoryWithStore(browserHistory, store);

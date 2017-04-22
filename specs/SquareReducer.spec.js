@@ -63,19 +63,4 @@ describe('reducers', () => {
       }
     );
   });
-
-  it('should get a winner', () => {
-    const squares = ['nought', 'nought', 'nought'];
-    expect(
-      reducer({ nextDraw: 'nought', squares}, {
-        type: types.CHECK_GAME_ENDED
-      })
-    ).toEqual(
-      {
-        squares,
-        nextDraw: 'nought',
-        winner: 'nought'
-      }
-    );
-  });
 });

@@ -1,31 +1,47 @@
-import Square from '../components/Square';
-import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import React from 'react';
+import PropTypes from 'prop-types';
+import SquareContainer from './SquareContainer';
+import PlayersContainer from './PlayersContainer';
+import WinnerMessage from '../components/WinnerMessage';
 import { resetAction } from '../actions/Square';
 
-const Main = ({ resetAction }) =>
+const Main = props =>
   <div className='main-container'>
-    <button onClick={resetAction}> Reset </button>
-    <div className='row'>
-      {[0, 1, 2, 3, 4, 5, 6, 7, 8].map(position =>
-        <div className='column'>
-          <Square position={position} />
-        </div>)
-      }
 
-    </div>
+
+    {!props.circle || !props.nought ?
+      <PlayersContainer />
+    :
+      <div>
+        <button className='action-button' onClick={props.resetAction}> Reset </button>
+        <SquareContainer />
+      </div>
+    }
+
+    {props.winner ?
+      <WinnerMessage winner={props.winner} />
+      : ''}
+
 
   </div>
   ;
 
-  Main.propTypes = {
-    resetAction: PropTypes.func.isRequired
-  };
+Main.propTypes = {
+  circle: PropTypes.string,
+  nought: PropTypes.string,
+  winner: PropTypes.winner,
+  resetAction: PropTypes.func.isRequired
 
-  const mapStateToProps = state => ({
-  });
+};
 
-  export default connect(
-    mapStateToProps,
-    { resetAction }
-  )(Main);
+const mapStateToProps = state => ({
+  circle: state.Players.circle,
+  nought: state.Players.nought,
+  winner: state.Square.winner
+});
+
+export default connect(
+  mapStateToProps,
+  { resetAction }
+)(Main);

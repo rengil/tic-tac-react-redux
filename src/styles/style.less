@@ -2,6 +2,22 @@
   padding: 4px;
 }
 
+input:focus {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+.action-button {
+  background-color: #039be5;
+  color: white;
+  border-radius: 2rem;
+  height: 5rem;
+  width: 10rem;
+}
+
 .main-container {
   width: 629px;
   padding-top: 2rem;
@@ -9,11 +25,19 @@
   margin-right: auto !important;
 }
 
+.square-container {
+  width: 24rem;
+  padding-top: 2rem;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-bottom: 2rem;
+}
+
 .tictac-square {
   background-color: #fb8c00;
   padding: 1rem;
-  width: 10rem;
-  height: 10rem;
+  width: 5rem;
+  height: 5rem;
   cursor: pointer;
   color: white;
   border-radius: 1rem;
@@ -21,11 +45,10 @@
   position: relative;
 
   > .draw i {
-    font-size: 6rem;
-    top: ~"calc(50% - 80)";
-    left: ~"calc(50% - 80)";
-    position: absolute;
-    font-size: 10em;
+    font-size: 5rem;
+    top: ~"calc(50% - 63)";
+    left: ~"calc(50% - 63)";
+    position: absolute; ;
   }
 
   &:hover {
