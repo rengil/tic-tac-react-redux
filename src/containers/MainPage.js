@@ -3,31 +3,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SquareContainer from './SquareContainer';
 import PlayersContainer from './PlayersContainer';
-import LeaderboardContainer from './LeaderboardContainer';
 import WinnerMessage from '../components/WinnerMessage';
-import { resetAction } from '../actions/Square';
-import { resetPlayersAction } from '../actions/Players';
+import LeftMenu from '../components/LeftMenu';
+import Player from '../components/Player';
 
 const Main = props =>
-  <div className='main-container'>
+  <div>
 
 
     {!props.circle || !props.nought ?
       <PlayersContainer />
     :
-      <div>
-        <button className='action-button' onClick={props.resetAction}> Reset </button>
-        <button className='action-button' onClick={props.resetPlayersAction}> Change Users </button>
+      <div className='main-container'>
+        <LeftMenu />
+        <div className='half-row'>
+        <Player drawType='circle'/>
+        <Player drawType='nought' />
+        </div>
+
         <SquareContainer />
-        <LeaderboardContainer />
+
+        {props.winner ?
+          <WinnerMessage winner={props.winner} />
+          : ''}
       </div>
     }
-
-    {props.winner ?
-      <WinnerMessage winner={props.winner} />
-      : ''}
-
-
   </div>
   ;
 
@@ -35,9 +35,6 @@ Main.propTypes = {
   circle: PropTypes.string,
   nought: PropTypes.string,
   winner: PropTypes.winner,
-  resetAction: PropTypes.func.isRequired,
-  resetPlayersAction: PropTypes.func.isRequired
-
 };
 
 const mapStateToProps = state => ({
@@ -48,5 +45,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { resetAction, resetPlayersAction }
+  {  }
 )(Main);
