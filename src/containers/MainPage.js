@@ -2,6 +2,18 @@ import React from 'react';
 import Square from '../components/Square';
 
 const FilterableTable = () =>
-  <Square />;
+<div>
+  <Square />
+  <Square />
+  <Square />
+  <Square />
+  <Square />
+  <Square />
+  <Square />
+  <Square />
+</div>
+
+
+  ;
 
 export default FilterableTable;

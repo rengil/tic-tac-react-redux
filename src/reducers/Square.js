@@ -8,7 +8,8 @@ function squareReducer(state = initialState, action) {
   switch (action.type) {
     case types.TICK_SQUARE:
       return Object.assign({}, state, {
-        drawType: action.drawType
+        drawType: action.drawType,
+        position: action.position
       });
     default:
       return state;

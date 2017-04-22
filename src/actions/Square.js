@@ -1,10 +1,11 @@
 import types from '../constants/ActionTypes';
 
-export const onClick = drawType => ({
+export const onClick = (drawType, position) => ({
   type: types.TICK_SQUARE,
-  drawType
+  drawType,
+  position
 });
 
-export const onClickAction = drawType => (dispatch) => {
-  dispatch(onClick(drawType));
+export const onClickAction = (drawType, position) => (dispatch) => {
+  dispatch(onClick(drawType, position));
 }

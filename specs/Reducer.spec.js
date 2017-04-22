@@ -7,7 +7,8 @@ describe('reducers', () => {
       reducer(undefined, {})
     ).toEqual(
       {
-        drawType: undefined
+        drawType: undefined,
+        position: undefined
       }
     );
   });
@@ -16,11 +17,13 @@ describe('reducers', () => {
     expect(
       reducer([], {
         type: types.TICK_SQUARE,
-        drawType: 'circle'
+        drawType: 'circle',
+        position: [1, 1]
       })
     ).toEqual(
       {
-        drawType: 'circle'
+        drawType: 'circle',
+        position: [1, 1]
       }
     );
   });
