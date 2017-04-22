@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { onClickAction } from '../actions/Square';
 
 class Square extends React.Component {
@@ -9,17 +9,19 @@ class Square extends React.Component {
     this.onDraw = this.onDraw.bind(this);
   }
 
-  onDraw() {
-    this.props.onClickAction('circle');
+  onDraw(e) {
+    e.preventDefault();
+    this.props.onClickAction('nought');
   }
 
   render() {
     return (
       <div onClick={this.onDraw} className='tictac-square'>
-      TESTE
+
         <div className='draw'>
-          { this.props.drawType === 'circle' ? 'CIRCLE' : ''}
-          { this.props.drawType === 'nought' ? 'NOUGHT' : ''}
+          { this.props.drawType === 'circle' ?
+            <i className='material-icons'> radio_button_unchecked </i> : ''}
+          { this.props.drawType === 'nought' ? <i className='material-icons'> clear </i> : ''}
         </div>
       </div>
     );

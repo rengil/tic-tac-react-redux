@@ -4,6 +4,7 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 module.exports = {
     devtool: 'eval-source-map',
     entry: [
@@ -33,6 +34,21 @@ module.exports = {
                 test: /\.(js|jsx)?$/,
                 exclude: /node_modules/,
                 loader: 'babel'
+            },
+
+            {
+                test: /\.(less)?$/,
+                loader: 'style!css!less'
+            },
+
+            {
+                test: /\.(css)?$/,
+                loader: 'style!css'
+            },
+
+            {
+                test: /\.(ttf|woff|eot|woff2)?$/,
+                loader: 'file-loader'
             }
         ]
     }
