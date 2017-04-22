@@ -9,7 +9,7 @@ const Main = ({ resetAction }) =>
     <div className='row'>
       {[0, 1, 2, 3, 4, 5, 6, 7, 8].map(position =>
         <div className='column'>
-          <Square ref={position} position={position} />
+          <Square position={position} />
         </div>)
       }
 
