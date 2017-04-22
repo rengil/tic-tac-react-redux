@@ -4,12 +4,17 @@ import types from '../src/constants/ActionTypes';
 describe('square', () => {
   it('should draw when clicked', () => {
     const drawType = 'circle';
-    const position = [1,1];
-    const expectedAction = {
-      type: types.TICK_SQUARE,
+    const position = [1, 1];
+    const square = {
       drawType,
       position
     };
-    expect(onClick(drawType, position)).toEqual(expectedAction);
+    const squares = [];
+    squares.push(square);
+    const expectedAction = {
+      type: types.TICK_SQUARE,
+      squares
+    };
+    expect(onClick(squares)).toEqual(expectedAction);
   });
 });

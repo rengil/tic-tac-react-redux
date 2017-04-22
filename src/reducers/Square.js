@@ -1,16 +1,18 @@
 import types from '../constants/ActionTypes';
 
 const initialState = {
-  drawType: undefined
+  squares: []
 };
 
 function squareReducer(state = initialState, action) {
   switch (action.type) {
-    case types.TICK_SQUARE:
+    case types.TICK_SQUARE: {
+      const squares = state.squares.slice();
+      squares[action.square.position] = action.square.drawType;
       return Object.assign({}, state, {
-        drawType: action.drawType,
-        position: action.position
+        squares
       });
+    }
     default:
       return state;
   }

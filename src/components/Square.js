@@ -9,9 +9,13 @@ class Square extends React.Component {
     this.onDraw = this.onDraw.bind(this);
   }
 
+  componentDidMount() {
+    this.props.onClickAction(undefined, this.props.position);
+  }
+
   onDraw(e) {
     e.preventDefault();
-    this.props.onClickAction('nought');
+    this.props.onClickAction('nought', this.props.position);
   }
 
   render() {
@@ -30,12 +34,12 @@ class Square extends React.Component {
 }
 
 Square.propTypes = {
-  drawType: PropTypes.string,
-  onClickAction: PropTypes.func.isRequired
+  square: PropTypes.object,
+  onClickAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-  drawType: state.Square.drawType
+  square: state.Square.square
 });
 
 export default connect(

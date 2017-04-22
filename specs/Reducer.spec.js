@@ -7,23 +7,25 @@ describe('reducers', () => {
       reducer(undefined, {})
     ).toEqual(
       {
-        drawType: undefined,
-        position: undefined
+        squares: []
       }
     );
   });
 
   it('should handle check square', () => {
+    const squares = [];
+    squares[3] = 'circle';
     expect(
-      reducer([], {
+      reducer({ squares: [] }, {
         type: types.TICK_SQUARE,
-        drawType: 'circle',
-        position: [1, 1]
+        square: {
+          drawType: 'circle',
+          position: [3]
+        }
       })
     ).toEqual(
       {
-        drawType: 'circle',
-        position: [1, 1]
+        squares
       }
     );
   });
