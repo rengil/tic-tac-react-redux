@@ -2,39 +2,41 @@ import types from '../constants/ActionTypes';
 
 const initialState = {
   squares: [],
-  nextDraw: 'circle',
   circlePlay: 5,
   noughtPlay: 4,
   draw: false,
-  winningArray: []
+  winningArray: [],
+  starts: 'circle',
+  nextDraw: 'circle'
 };
 
 function squareReducer(state = initialState, action) {
   switch (action.type) {
     case types.TICK_SQUARE: {
       const squares = state.squares.slice();
-
+      const nextDraw = action.square.drawType ? action.square.drawType : state.starts;
       if (squares[action.square.position] || state.winner || state.draw) {
         return state;
       }
-      squares[action.square.position] = action.square.drawType;
+      squares[action.square.position] = nextDraw;
       return Object.assign({}, state, {
         squares,
-        nextDraw: action.square.drawType === 'circle' ? 'nought' : 'circle',
-        circlePlay: action.square.drawType === 'circle' ? state.circlePlay - 1 : state.circlePlay,
-        noughtPlay: action.square.drawType === 'nought' ? state.noughtPlay - 1 : state.noughtPlay
+        nextDraw: nextDraw === 'circle' ? 'nought' : 'circle',
+        circlePlay: nextDraw === 'circle' ? state.circlePlay - 1 : state.circlePlay,
+        noughtPlay: nextDraw === 'nought' ? state.noughtPlay - 1 : state.noughtPlay
       });
     }
 
     case types.RESET: {
       return Object.assign({}, state, {
         squares: [],
-        nextDraw: 'circle',
         winner: undefined,
         circlePlay: 5,
         noughtPlay: 4,
         draw: false,
-        winningArray: []
+        winningArray: [],
+        starts: state.starts === 'circle' ? 'nought' : 'circle',
+        nextDraw: state.starts === 'circle' ? 'nought' : 'circle'
       });
     }
 

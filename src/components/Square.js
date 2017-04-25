@@ -17,8 +17,6 @@ class Square extends React.Component {
     const square = {};
     square.drawType = undefined;
     square.position = this.props.position;
-    this.props.onClickAction(square);
-
   }
 
   onDraw(e) {

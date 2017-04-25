@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "smoke": "cypress",
     "start": "webpack --config ./webpack.config.js --progress --profile --colors && node server",
     "build": "webpack --config ./webpack.config.js --progress --profile --colors"
   },
@@ -33,6 +34,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "css-loader": "^0.28.0",
+    "cypress": "^0.10.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
