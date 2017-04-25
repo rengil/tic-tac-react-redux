@@ -9,6 +9,8 @@ class Square extends React.Component {
   constructor(props) {
     super(props);
     this.onDraw = this.onDraw.bind(this);
+
+    this.state = {};
   }
 
   componentDidMount() {
@@ -26,6 +28,9 @@ class Square extends React.Component {
     square.position = this.props.position;
     this.props.onClickAction(square);
     this.props.checkEndGame();
+    this.setState({
+      iconEffect: true
+    })
   }
 
   render() {
@@ -43,10 +48,16 @@ class Square extends React.Component {
 
       >
 
-        <div className='draw'>
-          { this.props.squares[this.props.position] === 'circle' ?
-            <i className='material-icons'> radio_button_unchecked </i> : ''}
-          { this.props.squares[this.props.position] === 'nought' ? <i className='material-icons'> clear </i> : ''}
+        <div className={'draw'}>
+
+            <i className='material-icons'>
+              {this.props.squares[this.props.position] === 'circle' ?
+              'radio_button_unchecked' : 'clear'
+
+
+              }
+            </i>
+
         </div>
       </div>
     );

@@ -8,8 +8,7 @@ import LeaderboardContainer from '../containers/LeaderboardContainer';
 
 const LeftMenu = props =>
   <div className='left-menu'>
-
-    <button className='action-button' onClick={props.resetAction}> Reset </button>
+    <button className={'action-button ' + (props.again ? '-yellow' : '')} onClick={props.resetAction}> {props.again ? 'Play Again?' : 'Reset'} </button>
     <button className='action-button' onClick={props.resetPlayersAction}> Change Users </button>
     <LeaderboardContainer />
   </div>
@@ -20,7 +19,8 @@ LeftMenu.propTypes = {
   resetPlayersAction: PropTypes.string.isRequired
 };
 
-const mapStateToProps = () => ({
+const mapStateToProps = state => ({
+  again: state.Square.winner || state.Square.draw,
 });
 
 export default connect(

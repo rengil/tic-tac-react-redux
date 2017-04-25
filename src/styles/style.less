@@ -21,6 +21,14 @@ button:focus {
   min-width: 40rem;
 }
 
+@keyframes infinite-spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 .players-container {
   width: 629px;
@@ -54,6 +62,14 @@ button:focus {
     top: ~"calc(50% - 63)";
     left: ~"calc(50% - 63)";
     position: absolute; ;
+    font-size: 0px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease-in;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+
   }
 
   &:hover {
@@ -64,6 +80,13 @@ button:focus {
     background-color: #ef6c00;
     &.-win{
       background-color: #02A8F3;
+      -webkit-animation-name: infinite-spinning;
+    - webkit-animation-duration: 0.5s;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-direction: alternate;
+    }
+    .draw i {
+      font-size: 5rem;
     }
 
   }

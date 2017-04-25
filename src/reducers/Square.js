@@ -41,13 +41,15 @@ function squareReducer(state = initialState, action) {
     case types.END_GAME: {
       return Object.assign({}, state, {
         winner: action.winner.winner,
-        winningArray: action.winner.winningArray
+        winningArray: action.winner.winningArray,
+        nextDraw: undefined
       });
     }
 
     case types.DRAW: {
       return Object.assign({}, state, {
-        draw: true
+        draw: true,
+        nextDraw: undefined
       });
     }
 
