@@ -5,7 +5,8 @@ const initialState = {
   nextDraw: 'circle',
   circlePlay: 5,
   noughtPlay: 4,
-  draw: false
+  draw: false,
+  winningArray: []
 };
 
 function squareReducer(state = initialState, action) {
@@ -32,13 +33,15 @@ function squareReducer(state = initialState, action) {
         winner: undefined,
         circlePlay: 5,
         noughtPlay: 4,
-        draw: false
+        draw: false,
+        winningArray: []
       });
     }
 
     case types.END_GAME: {
       return Object.assign({}, state, {
-        winner: action.winner
+        winner: action.winner.winner,
+        winningArray: action.winner.winningArray
       });
     }
 

@@ -4,18 +4,20 @@ import PropTypes from 'prop-types';
 import '../styles/playersCards.less';
 
 const Player = props =>
-  <div className='column player-card'>
+  <div className={'column player-card ' + (props.playNext ? '-playnext' : '')}>
     {props.drawType === 'circle' ?
       <p className='player'> {props.circle} is <b> Circle <i className='material-icons icon'> radio_button_unchecked </i> </b> </p>  :
       <p className='player'> {props.nought} is <b> Nought <i className='material-icons icon'> clear </i> </b>  </p>
     }
+
   </div>
   ;
 
 Player.propTypes = {
   circle: PropTypes.string,
   nought: PropTypes.string,
-  drawType: PropTypes.string
+  drawType: PropTypes.string,
+  playNext: PropTypes.string
 };
 
 const mapStateToProps = state => ({

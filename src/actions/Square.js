@@ -39,11 +39,15 @@ export const checkEndGame = () => (dispatch, getState) => {
 
   const winnerDraw = checkIfGameHasEnded(state.Square.squares);
 
-  if (winnerDraw) {
-    dispatch(endGame(state.Players[winnerDraw]));
+  if (winnerDraw.winner) {
+    dispatch(
+      endGame({
+        winner: state.Players[winnerDraw.winner],
+        winningArray: winnerDraw.winningArray
+      }));
 
     dispatch(addToLeaderboard({
-      name: state.Players[winnerDraw]
+      name: state.Players[winnerDraw.winner]
     }));
     return;
   }

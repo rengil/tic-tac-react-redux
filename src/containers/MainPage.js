@@ -17,8 +17,8 @@ const Main = props =>
       <div className='main-container'>
         <LeftMenu />
         <div className='half-row'>
-        <Player drawType='circle'/>
-        <Player drawType='nought' />
+        <Player playNext={props.nextDraw === 'circle'} drawType='circle'/>
+        <Player playNext={props.nextDraw === 'nought'} drawType='nought' />
         </div>
 
         <SquareContainer />
@@ -35,13 +35,15 @@ Main.propTypes = {
   circle: PropTypes.string,
   nought: PropTypes.string,
   winner: PropTypes.winner,
+  nextDraw: PropTypes.string
 };
 
 const mapStateToProps = state => ({
   circle: state.Players.circle,
   nought: state.Players.nought,
   winner: state.Square.winner,
-  draw: state.Square.draw
+  draw: state.Square.draw,
+  nextDraw: state.Square.nextDraw
 });
 
 export default connect(

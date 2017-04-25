@@ -1,6 +1,8 @@
+import _ from 'lodash';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { onClickAction, checkEndGame } from '../actions/Square';
+
 
 class Square extends React.Component {
 
@@ -33,7 +35,13 @@ class Square extends React.Component {
     }
 
     return (
-      <div onClick={this.onDraw} className={'tictac-square ' + (selected ? ' drawed ' : '')}>
+      <div onClick={this.onDraw}
+        className={'tictac-square ' + (selected ? ' drawed ' : '')
+                   + (_.intersection(this.props.winningArray, [this.props.position]).length ? ' -win ' : '')
+
+                    }
+
+      >
 
         <div className='draw'>
           { this.props.squares[this.props.position] === 'circle' ?
@@ -56,7 +64,8 @@ Square.propTypes = {
 
 const mapStateToProps = state => ({
   squares: state.Square.squares,
-  nextDraw: state.Square.nextDraw
+  nextDraw: state.Square.nextDraw,
+  winningArray: state.Square.winningArray
 });
 
 export default connect(

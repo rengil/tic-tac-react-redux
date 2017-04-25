@@ -12,10 +12,13 @@ const testCases = [
 
 const compareThree = (a, b, c, squares) => {
   if (squares[a] === squares[b] && squares[b] === squares[c]) {
-    return squares[a];
+    return {
+      winner: squares[a],
+      winningArray: [a, b, c]
+    };
   }
 
-  return '';
+  return {};
 };
 
 const isPossible = (a, b, c, squares, type, count) => {
@@ -59,14 +62,16 @@ const isPossible = (a, b, c, squares, type, count) => {
 };
 
 export const checkIfGameHasEnded = squares => {
-  let winner = '';
+  let checkWin = '';
 
   for ( var i = 0; i < testCases.length; i++) {
-    winner = compareThree(testCases[i][0], testCases[i][1], testCases[i][2], squares);
-    if (winner) {
-      return winner;
+    checkWin = compareThree(testCases[i][0], testCases[i][1], testCases[i][2], squares);
+    if (checkWin.winner) {
+      return checkWin;
     }
   }
+
+  return {};
 }
 
 export const checkIfOldWoman = (squares, circlePlay, noughtPlay) => {
