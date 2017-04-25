@@ -7,8 +7,8 @@ const LeaderboardContainer = props =>
   <div className='players-leaderboard'>
     <h1 className='title'> Leaderboards </h1>
     <ul className='list'>
-      { props.records.map(record =>
-        <li className='player'> {record.name} : {record.victories} </li>
+      { props.records.map( (record,id) =>
+        <li key={id} className='player'> {record.name} : {record.victories} </li>
       )
       }
 

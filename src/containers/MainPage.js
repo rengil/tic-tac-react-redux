@@ -23,8 +23,8 @@ const Main = props =>
 
         <SquareContainer />
 
-        {props.winner ?
-          <WinnerMessage winner={props.winner} />
+        {props.winner || props.draw ?
+          <WinnerMessage draw={props.draw} winner={props.winner} />
           : ''}
       </div>
     }
@@ -40,7 +40,8 @@ Main.propTypes = {
 const mapStateToProps = state => ({
   circle: state.Players.circle,
   nought: state.Players.nought,
-  winner: state.Square.winner
+  winner: state.Square.winner,
+  draw: state.Square.draw
 });
 
 export default connect(

@@ -1,5 +1,5 @@
 import types from '../constants/ActionTypes';
-import { checkIfGameHasEnded } from '../purejs/calculateWinner';
+import { checkIfGameHasEnded, checkIfOldWoman } from '../purejs/calculateWinner';
 import { addToLeaderboard } from '../actions/Leaderboard';
 
 export const onClick = square => ({
@@ -9,6 +9,10 @@ export const onClick = square => ({
 
 export const reset = () => ({
   type: types.RESET
+});
+
+export const draw = () => ({
+  type: types.DRAW
 });
 
 export const endGame = winner => ({
@@ -29,15 +33,29 @@ export const resetAction = () => (dispatch) => {
 export const checkEndGame = () => (dispatch, getState) => {
   const state = getState();
 
-  if (state.Square.winner) {
+  if (state.Square.winner || state.Square.draw) {
     return;
   }
 
   const winnerDraw = checkIfGameHasEnded(state.Square.squares);
+
   if (winnerDraw) {
     dispatch(endGame(state.Players[winnerDraw]));
+
     dispatch(addToLeaderboard({
       name: state.Players[winnerDraw]
     }));
+    return;
+  }
+
+  const threeOrLessPlaysLeft = (state.Square.circlePlay + state.Square.noughtPlay <= 3);
+  if (threeOrLessPlaysLeft) {
+    const checkIfDraw = checkIfOldWoman(state.Square.squares, state.Square.circlePlay, state.Square.noughtPlay);
+    if (checkIfDraw) {
+      dispatch(draw());
+      dispatch(addToLeaderboard({
+        name: 'draw'
+      }));
+    }
   }
 };
