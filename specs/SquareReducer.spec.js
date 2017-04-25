@@ -1,15 +1,20 @@
 import reducer from '../src/reducers/Square';
 import types from '../src/constants/ActionTypes';
 
+const initialState = {
+  squares: [],
+  nextDraw: 'circle',
+  circlePlay: 5,
+  noughtPlay: 4,
+  draw: false
+};
+
 describe('reducers', () => {
   it('should return the initial state', () => {
     expect(
       reducer(undefined, {})
     ).toEqual(
-      {
-        squares: [],
-        nextDraw: 'circle'
-      }
+      initialState
     );
   });
 
@@ -17,7 +22,7 @@ describe('reducers', () => {
     const squares = [];
     squares[3] = 'circle';
     expect(
-      reducer({ squares: [] }, {
+      reducer(initialState, {
         type: types.TICK_SQUARE,
         square: {
           drawType: 'circle',
@@ -26,8 +31,11 @@ describe('reducers', () => {
       })
     ).toEqual(
       {
-        squares,
-        nextDraw: 'nought'
+        circlePlay: 4,
+        draw: false,
+        nextDraw: 'nought',
+        noughtPlay: 4,
+        squares
       }
     );
   });
@@ -57,10 +65,7 @@ describe('reducers', () => {
         type: types.RESET
       })
     ).toEqual(
-      {
-        squares: [],
-        nextDraw: 'circle'
-      }
+      initialState
     );
   });
 });
