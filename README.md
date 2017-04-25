@@ -1,1 +1,12 @@
-# useItForReact# tic-tac-react-redux
+TIC TAC TOE
+
+REDUX + REACT 
+  doing the UI
+  
+LESS 
+  doing the styles
+  
+Material-Icons
+
+UNIT TESTING WITH JEST
+INTEGRATION TESTS WITH CYPRESS
