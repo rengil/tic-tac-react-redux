@@ -8,8 +8,8 @@ import LeaderboardContainer from '../containers/LeaderboardContainer';
 
 const LeftMenu = props =>
   <div className='left-menu'>
-    <button className={'action-button ' + (props.again ? '-yellow' : '')} onClick={props.resetAction}> {props.again ? 'Play Again?' : 'Reset'} </button>
-    <button className='action-button' onClick={props.resetPlayersAction}> Change Users </button>
+    <button id='again' className={'action-button ' + (props.again ? '-yellow' : '')} onClick={props.resetAction}> {props.again ? 'Play Again?' : 'Reset'} </button>
+    <button id='change' className='action-button' onClick={props.resetPlayersAction}> Change Users </button>
     <LeaderboardContainer />
   </div>
   ;

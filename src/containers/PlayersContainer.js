@@ -36,6 +36,7 @@ class PlayersContainer extends React.Component {
         <label className='draw' htmlFor='circle'> Player Circle </label>
         <input
           className='player'
+          id='circle'
           onChange={this.onChangeInput}
           name='circle'
           value={this.state.circle}
@@ -45,6 +46,7 @@ class PlayersContainer extends React.Component {
         <label className='draw' htmlFor='nought'> Player Nought </label>
         <input
           className='player'
+          id='nought'
           onChange={this.onChangeInput}
           name='nought'
           value={this.state.nought}
