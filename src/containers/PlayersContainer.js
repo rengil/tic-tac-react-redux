@@ -13,6 +13,7 @@ class PlayersContainer extends React.Component {
     super(props);
     this.onSave = this.onSave.bind(this);
     this.onChangeInput = this.onChangeInput.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
 
 
     this.state = {
@@ -20,6 +21,10 @@ class PlayersContainer extends React.Component {
       nought: '',
       error: undefined
     };
+  }
+
+  componentDidMount() {
+    this.focusInput.focus();
   }
 
   onSave(e) {
@@ -34,14 +39,21 @@ class PlayersContainer extends React.Component {
     this.setState(actualState);
   }
 
+  handleKeyPress(e) {
+  if(e.key === 'Enter'){
+    this.onSave(e);
+  }
+}
+
   render() {
     return (
-      <div className='players-container'>
+      <div onKeyPress={this.handleKeyPress}  className='players-container'>
         {
           <p className={`errormessage ${this.props.error ? '-show' : ''}`}> {this.props.error}</p>
         }
-        <label className='draw' htmlFor='circle'> Player Circle </label>
+        <label className='draw' htmlFor='circle'> Name of Player Circle </label>
         <input
+          ref={(input) => { this.focusInput = input; }}
           className='player'
           id='circle'
           onChange={this.onChangeInput}
@@ -50,7 +62,7 @@ class PlayersContainer extends React.Component {
           type='text'
         />
 
-        <label className='draw' htmlFor='nought'> Player Nought </label>
+        <label className='draw' htmlFor='nought'> Name of Player Nought </label>
         <input
           className='player'
           id='nought'
