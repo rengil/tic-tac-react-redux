@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux';
-import MainPage from './containers/MainPage';
+import TicTacToe from './containers/TicTacToe';
 import { Router, Route, IndexRoute  } from 'react-router';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
@@ -21,7 +21,7 @@ const store = createStore(
 
 const history = syncHistoryWithStore(browserHistory, store);
 
-const routes =  <Route path="/" component={MainPage}></Route>;
+const routes =  <Route path="/" component={TicTacToe}></Route>;
 
 render(<Provider store={store}>
         <Router history={history} routes={routes} />

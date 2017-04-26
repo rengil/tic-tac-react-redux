@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import Square from '../components/Square';
 
 const SquareContainer = () =>
@@ -17,13 +15,4 @@ const SquareContainer = () =>
   </div>
   ;
 
-  SquareContainer.propTypes = {
-    resetAction: PropTypes.func.isRequired
-  };
-
-  const mapStateToProps = state => ({
-  });
-
-  export default connect(
-    mapStateToProps,
-  )(SquareContainer);
+export default SquareContainer;

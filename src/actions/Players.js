@@ -1,5 +1,5 @@
 import types from '../constants/ActionTypes';
-import { reset } from '../actions/Square';
+import { reset } from '../actions/TicTacToe';
 
 export const setPlayers = (circle, nought) => ({
   type: types.SET_PLAYERS,

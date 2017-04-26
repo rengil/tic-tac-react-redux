@@ -1,4 +1,4 @@
-import { onClick } from '../src/actions/Square';
+import { onClick } from '../src/actions/TicTacToe';
 import types from '../src/constants/ActionTypes';
 
 describe('square', () => {

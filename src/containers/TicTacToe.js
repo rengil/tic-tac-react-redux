@@ -3,11 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SquareContainer from './SquareContainer';
 import PlayersContainer from './PlayersContainer';
-import WinnerMessage from '../components/WinnerMessage';
+import EndGameMessage from '../components/EndGameMessage';
 import LeftMenu from '../components/LeftMenu';
 import Player from '../components/Player';
 
-const Main = props =>
+const TicTacToe = props =>
   <div>
 
 
@@ -17,36 +17,37 @@ const Main = props =>
       <div className='main-container'>
         <LeftMenu />
         <div className='half-row'>
-        <Player playNext={props.nextDraw === 'circle'} drawType='circle'/>
-        <Player playNext={props.nextDraw === 'nought'} drawType='nought' />
+          <Player playNext={props.nextDraw === 'circle'} drawType='circle' />
+          <Player playNext={props.nextDraw === 'nought'} drawType='nought' />
         </div>
 
         <SquareContainer />
 
         {props.winner || props.draw ?
-          <WinnerMessage draw={props.draw} winner={props.winner} />
+          <EndGameMessage draw={props.draw} winner={props.winner} />
           : ''}
       </div>
     }
   </div>
   ;
 
-Main.propTypes = {
+TicTacToe.propTypes = {
   circle: PropTypes.string,
   nought: PropTypes.string,
   winner: PropTypes.winner,
-  nextDraw: PropTypes.string
+  nextDraw: PropTypes.string,
+  draw: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
   circle: state.Players.circle,
   nought: state.Players.nought,
-  winner: state.Square.winner,
-  draw: state.Square.draw,
-  nextDraw: state.Square.nextDraw
+  winner: state.TicTacToe.winner,
+  draw: state.TicTacToe.draw,
+  nextDraw: state.TicTacToe.nextDraw
 });
 
 export default connect(
   mapStateToProps,
   {  }
-)(Main);
+)(TicTacToe);

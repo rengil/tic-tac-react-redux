@@ -2,7 +2,8 @@ import types from '../constants/ActionTypes';
 import { checkIfGameHasEnded, checkIfOldWoman } from '../purejs/calculateWinner';
 import { addToLeaderboard } from '../actions/Leaderboard';
 
-export const onClick = square => ({
+/** Tick the TicTacToe on TicTacToe */
+export const tickTicTacToe = square => ({
   type: types.TICK_SQUARE,
   square
 });
@@ -20,10 +21,8 @@ export const endGame = winner => ({
   winner
 });
 
-export const onClickAction = square => dispatch => {
-
-  dispatch(onClick(square));
-
+export const tickTicTacToeAction = square => (dispatch) => {
+  dispatch(tickTicTacToe(square));
 };
 
 export const resetAction = () => (dispatch) => {
@@ -33,11 +32,11 @@ export const resetAction = () => (dispatch) => {
 export const checkEndGame = () => (dispatch, getState) => {
   const state = getState();
 
-  if (state.Square.winner || state.Square.draw) {
+  if (state.TicTacToe.winner || state.TicTacToe.draw) {
     return;
   }
 
-  const winnerDraw = checkIfGameHasEnded(state.Square.squares);
+  const winnerDraw = checkIfGameHasEnded(state.TicTacToe.squares);
 
   if (winnerDraw.winner) {
     dispatch(
@@ -52,9 +51,9 @@ export const checkEndGame = () => (dispatch, getState) => {
     return;
   }
 
-  const threeOrLessPlaysLeft = (state.Square.circlePlay + state.Square.noughtPlay <= 3);
+  const threeOrLessPlaysLeft = (state.TicTacToe.circlePlay + state.TicTacToe.noughtPlay <= 3);
   if (threeOrLessPlaysLeft) {
-    const checkIfDraw = checkIfOldWoman(state.Square.squares, state.Square.circlePlay, state.Square.noughtPlay);
+    const checkIfDraw = checkIfOldWoman(state.TicTacToe.squares, state.TicTacToe.circlePlay, state.TicTacToe.noughtPlay);
     if (checkIfDraw) {
       dispatch(draw());
       dispatch(addToLeaderboard({

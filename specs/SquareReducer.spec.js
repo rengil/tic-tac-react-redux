@@ -1,4 +1,4 @@
-import reducer from '../src/reducers/Square';
+import reducer from '../src/reducers/TicTacToe';
 import types from '../src/constants/ActionTypes';
 
 const initialState = {
