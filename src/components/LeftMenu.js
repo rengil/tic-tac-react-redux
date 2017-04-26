@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import '../styles/leftmenu.less';
 import { resetAction } from '../actions/TicTacToe';
 import { resetPlayersAction } from '../actions/Players';
-import LeaderboardContainer from '../containers/LeaderboardContainer';
+import Leaderboard from './Leaderboard';
 
 /**
  * A <LeftMenu> component is a component that renders in the left of the app,
@@ -29,7 +29,7 @@ const LeftMenu = props =>
         Change Users
     </button>
 
-    <LeaderboardContainer />
+    <Leaderboard />
   </div>
   ;
 

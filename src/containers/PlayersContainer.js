@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { setPlayersAction } from '../actions/Players';
 import '../styles/players.less';
 
+/**
+ * Form that has the players name to be defined
+*/
 class PlayersContainer extends React.Component {
 
   constructor(props) {
@@ -20,7 +23,10 @@ class PlayersContainer extends React.Component {
 
   onSave(e) {
     e.preventDefault();
-    this.props.setPlayersAction(this.state.circle, this.state.nought);
+    if (this.state.circle.trim() === this.state.nought.trim()) {
+      return;
+    }
+    this.props.setPlayersAction(this.state.circle.trim(), this.state.nought.trim());
   }
 
   onChangeInput(e) {
@@ -60,6 +66,10 @@ class PlayersContainer extends React.Component {
 
 }
 
+/**
+ * @memberof components.PlayersContainer
+ * @prop {setPlayersAction} propTypes - define the players actions
+*/
 PlayersContainer.propTypes = {
   setPlayersAction: PropTypes.func.isRequired
 };

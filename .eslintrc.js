@@ -26,6 +26,7 @@ module.exports = {
     "jsx-quotes": ["error", "prefer-single"],
     "prefer-template": 0,
     "react/require-default-props": 0,
-    "jsx-a11y/no-static-element-interactions": 0
+    "jsx-a11y/no-static-element-interactions": 0,
+    "no-plusplus": 0
   }
 };

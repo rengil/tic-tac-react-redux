@@ -1,6 +1,9 @@
 import React from 'react';
 import Square from '../components/Square';
 
+/**
+ * Container of the Squares in the Tic Tac Toe
+*/
 const SquareContainer = () =>
   <div className='square-container'>
     <div className='row'>

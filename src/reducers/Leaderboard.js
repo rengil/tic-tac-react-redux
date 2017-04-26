@@ -1,6 +1,11 @@
 import _ from 'lodash';
 import types from '../constants/ActionTypes';
 
+/** Reducer : leaderboard
+ * case: ADD_TO_LEADERBOARD
+ *       1 - if not exists, add a new record in the array of records
+ *       2 - or if exists, increment a existing record
+ */
 function leaderboard(state = { records: [] }, action) {
   switch (action.type) {
     case types.ADD_TO_LEADERBOARD: {

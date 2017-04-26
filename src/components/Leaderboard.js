@@ -3,20 +3,29 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import '../styles/leaderboard.less';
 
-const LeaderboardContainer = props =>
+/**
+ * Leaderboard contain the wins(by player) and draws
+*/
+
+const Leaderboard = props =>
   <div className='players-leaderboard'>
     <h1 className='title'> Leaderboards </h1>
     <ul className='list'>
-      { props.records.map( (record,id) =>
-        <li key={id} className='player'> {record.name} : {record.victories} </li>
-      )
-      }
+      { props.records.map(record =>
+        <li key={record.name} className='player'>
+          {record.name} : {record.victories} </li>
+      )}
 
     </ul>
   </div>;
 
 
-LeaderboardContainer.propTypes = {
+/**
+ * @memberof components.Leaderboard
+ * @prop {records} propTypes - object of records with the name (or draw), with
+ * the count of victories
+*/
+Leaderboard.propTypes = {
   records: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
@@ -27,4 +36,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { }
-)(LeaderboardContainer);
+)(Leaderboard);

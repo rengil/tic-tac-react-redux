@@ -1,12 +1,14 @@
 import types from '../constants/ActionTypes';
 import { reset } from '../actions/TicTacToe';
 
+/** Action: set players by circle or nought */
 export const setPlayers = (circle, nought) => ({
   type: types.SET_PLAYERS,
   circle,
   nought
 });
 
+/** Action: reset the players name */
 export const resetPlayers = () => ({
   type: types.RESET_PLAYERS
 });

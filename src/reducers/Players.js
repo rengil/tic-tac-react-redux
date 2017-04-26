@@ -1,5 +1,11 @@
 import types from '../constants/ActionTypes';
 
+/** Reducer : playerReducer
+ * case: SET_PLAYERS
+          define the circle and nought player names
+* case: RESET_PLAYERS
+         reset the circle and nought player names
+ */
 function playerReducer(state = {}, action) {
   switch (action.type) {
     case types.SET_PLAYERS: {

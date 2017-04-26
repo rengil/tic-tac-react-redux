@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { tickTicTacToeAction, checkEndGame } from '../actions/TicTacToe';
+import { tickSquareAction, checkEndGame } from '../actions/TicTacToe';
 
 /**
  * Is the Square in the TIC TAC TOE
@@ -23,7 +23,7 @@ class Square extends React.Component {
   onDraw(e) {
     e.preventDefault();
 
-    this.props.tickTicTacToeAction({
+    this.props.tickSquareAction({
       drawType: this.props.nextDraw,
       position: this.props.position
     });
@@ -78,7 +78,7 @@ class Square extends React.Component {
  */
 Square.propTypes = {
   squares: PropTypes.arrayOf(PropTypes.string),
-  tickTicTacToeAction: PropTypes.func.isRequired,
+  tickSquareAction: PropTypes.func.isRequired,
   checkEndGame: PropTypes.func.isRequired,
   position: PropTypes.number,
   nextDraw: PropTypes.string,
@@ -93,5 +93,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { tickTicTacToeAction, checkEndGame }
+  { tickSquareAction, checkEndGame }
 )(Square);

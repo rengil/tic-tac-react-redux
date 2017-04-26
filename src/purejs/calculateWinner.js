@@ -1,4 +1,4 @@
-
+/** all the test cases for being a winner in tic tac */
 const testCases = [
   [0, 1, 2],
   [3, 4, 5],
@@ -10,7 +10,8 @@ const testCases = [
   [6, 4, 2]
 ];
 
-const compareThree = (a, b, c, squares) => {
+/** check if the test case is a winner */
+const checkTestCaseForWin = (a, b, c, squares) => {
   if (squares[a] === squares[b] && squares[b] === squares[c]) {
     return {
       winner: squares[a],
@@ -21,71 +22,75 @@ const compareThree = (a, b, c, squares) => {
   return {};
 };
 
-const isPossible = (a, b, c, squares, type, count) => {
-  // Se o count é 0
-  if (count === 0) {
+/** check if the test case STILL CAN BE a winner*/
+const checkTestCaseStillPossibleWinForDrawType = (a, b, c, squares, drawType, typeLastMoves) => {
+  // if the the player has no moves, test case is no possible for him
+  if (typeLastMoves === 0) {
     return false;
   }
 
-  // Need to get um square to win
-  if ((squares[a] === squares[b]) && !squares[c] && squares[a] === type) {
+  // One Square remaning, the two already drawed equals the draw type
+  if ((squares[a] === squares[b]) && !squares[c] && squares[a] === drawType) {
     return true;
   }
 
-  if ((squares[b] === squares[c]) && !squares[a] && squares[b] === type) {
+  if ((squares[b] === squares[c]) && !squares[a] && squares[b] === drawType) {
     return true;
   }
 
-  if ((squares[a] === squares[c]) && !squares[b] && squares[c] === type) {
+  if ((squares[a] === squares[c]) && !squares[b] && squares[c] === drawType) {
     return true;
   }
 
-  // Precisa preencher dois quadrados para vencer
+  // Two squares are needed to check. If less than two moves for the type, return false
 
-  if (count < 2) {
+  if (typeLastMoves < 2) {
     return false;
   }
 
-  if (!squares[a] && !squares[b] && squares[c] && squares[c] === type) {
+  // the only square must be equal to the dray type
+  if (!squares[a] && !squares[b] && squares[c] && squares[c] === drawType) {
     return true;
   }
 
-  if (!squares[b] && !squares[c] && squares[a] && squares[a] === type) {
+  if (!squares[b] && !squares[c] && squares[a] && squares[a] === drawType) {
     return true;
   }
 
-  if (!squares[a] && !squares[c] && squares[b] && squares[b] === type) {
+  if (!squares[a] && !squares[c] && squares[b] && squares[b] === drawType) {
     return true;
   }
 
   return false;
 };
 
-export const checkIfGameHasEnded = squares => {
+// call the all test cases, if one is true, return a winner
+export const checkIfGameHasEnded = (squares) => {
   let checkWin = '';
 
-  for ( var i = 0; i < testCases.length; i++) {
-    checkWin = compareThree(testCases[i][0], testCases[i][1], testCases[i][2], squares);
+  for (let i = 0; i < testCases.length; i++) {
+    checkWin = checkTestCaseForWin(testCases[i][0], testCases[i][1], testCases[i][2], squares);
     if (checkWin.winner) {
       return checkWin;
     }
   }
 
   return {};
-}
+};
 
+// call the all test cases, if one still can be a winner, returns false
 export const checkIfOldWoman = (squares, circlePlay, noughtPlay) => {
   let canCircleWin;
   let canNoughtWin;
   for (let i = 0; i < testCases.length; i++) {
     canCircleWin =
-      isPossible(testCases[i][0], testCases[i][1], testCases[i][2], squares, 'circle', circlePlay);
+      checkTestCaseStillPossibleWinForDrawType(testCases[i][0], testCases[i][1], testCases[i][2], squares, 'circle', circlePlay);
     canNoughtWin =
-      isPossible(testCases[i][0], testCases[i][1], testCases[i][2], squares, 'nought', noughtPlay);
+      checkTestCaseStillPossibleWinForDrawType(testCases[i][0], testCases[i][1], testCases[i][2], squares, 'nought', noughtPlay);
     if (canCircleWin || canNoughtWin) {
       return false;
     }
   }
 
   return true;
-}
+};
