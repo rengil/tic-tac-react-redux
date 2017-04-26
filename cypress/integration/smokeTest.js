@@ -1,10 +1,11 @@
+/* eslint-disable */
 describe('Smoke Test', function() {
   beforeEach(function() {
     cy.visit('http://localhost:3000/')
   })
 
   context('Smoke test', function(){
-    it('focus on the draw player input', function(){
+    it('Passing fast through the app', function() {
 
       cy.get('#circle').type('Renan', {force: true})
       cy.get('#nought').type('Flávia', {force: true})
