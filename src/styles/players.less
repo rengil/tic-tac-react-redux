@@ -5,7 +5,7 @@
   }
   .player {
     margin:2rem;
-    height: 5rem;
+    height: 3rem;
     padding: 2rem;
     background-color: #00bfa5;
     color: white;
@@ -24,5 +24,23 @@
     box-shadow: 10px 10px 5px #888888;
     font-size: 1rem;
     font-weight: bold;
+  }
+
+  .errormessage {
+    background-color: #ef5350;
+    color: white;
+    padding: 1rem;
+    margin-left:2rem;
+    width: 100%;
+    opacity: 0;
+    min-height: 1.2rem;
+    &.-show {
+      opacity: 1;
+      -webkit-transition: all 0.3s ease ;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease-in;
+      transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
   }
 }

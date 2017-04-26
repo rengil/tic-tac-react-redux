@@ -1,4 +1,4 @@
-import { onClick } from '../src/actions/TicTacToe';
+import { tickSquare } from '../src/actions/TicTacToe';
 import types from '../src/constants/ActionTypes';
 
 describe('square', () => {
@@ -14,6 +14,6 @@ describe('square', () => {
       type: types.TICK_SQUARE,
       square
     };
-    expect(onClick(square)).toEqual(expectedAction);
+    expect(tickSquare(square)).toEqual(expectedAction);
   });
 });

@@ -6,7 +6,9 @@ const initialState = {
   nextDraw: 'circle',
   circlePlay: 5,
   noughtPlay: 4,
-  draw: false
+  draw: false,
+  starts: 'circle',
+  winningArray: []
 };
 
 describe('reducers', () => {
@@ -35,7 +37,9 @@ describe('reducers', () => {
         draw: false,
         nextDraw: 'nought',
         noughtPlay: 4,
-        squares
+        squares,
+        starts: 'circle',
+        winningArray: []
       }
     );
   });

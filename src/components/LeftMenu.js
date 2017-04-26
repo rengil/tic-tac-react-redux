@@ -15,7 +15,7 @@ const LeftMenu = props =>
   <div className='left-menu'>
     <button
       id='again'
-      className={'action-button ' + (props.again ? '-yellow' : '')}
+      className={'action-button ' + (props.again ? '-orange' : '')}
       onClick={props.resetAction}
     >
       { props.again ? 'Play Again?' : 'Reset'}

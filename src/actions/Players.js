@@ -1,4 +1,5 @@
 import types from '../constants/ActionTypes';
+import errors from '../constants/Errors';
 import { reset } from '../actions/TicTacToe';
 
 /** Action: set players by circle or nought */

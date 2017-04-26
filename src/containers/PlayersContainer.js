@@ -17,15 +17,13 @@ class PlayersContainer extends React.Component {
 
     this.state = {
       circle: '',
-      nought: ''
+      nought: '',
+      error: undefined
     };
   }
 
   onSave(e) {
     e.preventDefault();
-    if (this.state.circle.trim() === this.state.nought.trim()) {
-      return;
-    }
     this.props.setPlayersAction(this.state.circle.trim(), this.state.nought.trim());
   }
 
@@ -39,6 +37,9 @@ class PlayersContainer extends React.Component {
   render() {
     return (
       <div className='players-container'>
+        {
+          <p className={`errormessage ${this.props.error ? '-show' : ''}`}> {this.props.error}</p>
+        }
         <label className='draw' htmlFor='circle'> Player Circle </label>
         <input
           className='player'
@@ -60,6 +61,7 @@ class PlayersContainer extends React.Component {
         />
 
         <button className='set' onClick={this.onSave}> Set players </button>
+
       </div>
     );
   }
@@ -69,13 +71,15 @@ class PlayersContainer extends React.Component {
 /**
  * @memberof components.PlayersContainer
  * @prop {setPlayersAction} propTypes - define the players actions
+ * @prop {error} propTypes - when errors on the record happens
 */
 PlayersContainer.propTypes = {
-  setPlayersAction: PropTypes.func.isRequired
+  setPlayersAction: PropTypes.func.isRequired,
+  error: PropTypes.string
 };
 
-const mapStateToProps = () => ({
-
+const mapStateToProps = state => ({
+  error: state.Players.error
 });
 
 export default connect(
