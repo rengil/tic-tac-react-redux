@@ -25,7 +25,10 @@ const TicTacToe = props =>
         </div>
 
         <SquareContainer />
-        <EndGameMessage draw={props.draw} winner={props.winner} />
+        {props.draw || props.winner ?
+          <EndGameMessage draw={props.draw} winner={props.winner} /> : ''
+        }
+
       </div>
     }
   </div>
@@ -57,5 +60,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {  }
+  { }
 )(TicTacToe);

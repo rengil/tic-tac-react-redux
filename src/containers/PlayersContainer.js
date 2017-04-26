@@ -40,14 +40,14 @@ class PlayersContainer extends React.Component {
   }
 
   handleKeyPress(e) {
-  if(e.key === 'Enter'){
-    this.onSave(e);
+    if (e.key === 'Enter') {
+      this.onSave(e);
+    }
   }
-}
 
   render() {
     return (
-      <div onKeyPress={this.handleKeyPress}  className='players-container'>
+      <div onKeyPress={this.handleKeyPress} className='players-container'>
         {
           <p className={`errormessage ${this.props.error ? '-show' : ''}`}> {this.props.error}</p>
         }
