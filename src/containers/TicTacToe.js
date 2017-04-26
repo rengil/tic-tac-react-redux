@@ -25,10 +25,7 @@ const TicTacToe = props =>
         </div>
 
         <SquareContainer />
-
-        {props.winner || props.draw ?
-          <EndGameMessage draw={props.draw} winner={props.winner} />
-          : ''}
+        <EndGameMessage draw={props.draw} winner={props.winner} />
       </div>
     }
   </div>
