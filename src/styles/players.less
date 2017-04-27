@@ -1,7 +1,9 @@
 .players-container {
    max-width: 50rem;
+   margin-left: auto !important;
+   margin-right: auto !important;
   .draw {
-    font-size: 2rem;
+    font-size: 1.rem;
     margin:2rem;
   }
   .player {
@@ -10,25 +12,44 @@
     padding: 2rem;
     background-color: #00bfa5;
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-radius: 2rem;
     box-shadow: 10px 10px 5px #888888;
     width: 88%;
     box-sizing : border-box;
   }
 
-  .set {
-    background-color: #eeeeee;
-    color: #424242;
-    height: 5rem;
-    width: 10rem;
-    cursor: pointer;
-    border-radius: 2rem;
-    box-shadow: 10px 10px 5px #888888;
-    font-size: 1rem;
-    font-weight: bold;
-    &:hover {
-      background-color: #e0e0e0;
+  @media (max-width: 768px) {
+    .set {
+      background-color: #eeeeee;
+      color: #424242;
+      height: 2.5rem;
+      width: 10rem;
+      cursor: pointer;
+      border-radius: 2rem;
+      box-shadow: 10px 10px 5px #888888;
+      font-size: 1rem;
+      font-weight: bold;
+      &:hover {
+        background-color: #e0e0e0;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .set {
+      background-color: #eeeeee;
+      color: #424242;
+      height: 5rem;
+      width: 10rem;
+      cursor: pointer;
+      border-radius: 2rem;
+      box-shadow: 10px 10px 5px #888888;
+      font-size: 1rem;
+      font-weight: bold;
+      &:hover {
+        background-color: #e0e0e0;
+      }
     }
   }
 

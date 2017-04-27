@@ -3,10 +3,10 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 
 module.exports = {
-    devtool: 'eval-source-map',
     entry: [
         'webpack-dev-server/client?http://localhost:3000',
         'webpack/hot/only-dev-server',
@@ -25,13 +25,13 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-          template: 'src/index.html',
+          template: 'src/index.html'
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
-        new webpack.DefinePlugin({
-          'process.env.NODE_ENV': JSON.stringify('development')
+        new webpack.optimize.UglifyJsPlugin({
+          compress: { warnings: false}
         })
     ],
     module: {

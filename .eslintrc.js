@@ -28,6 +28,7 @@ module.exports = {
     "react/require-default-props": 0,
     "jsx-a11y/no-static-element-interactions": 0,
     "no-plusplus": 0,
-    "no-param-reassign": 0
+    "no-param-reassign": 0,
+    "max-len": 0
   }
 };

@@ -1,6 +1,5 @@
 import { setPlayers, resetPlayers } from '../src/actions/Players';
 import types from '../src/constants/ActionTypes';
-import errors from '../src/constants/Errors';
 
 describe('player', () => {
   it('should receive the player names', () => {
