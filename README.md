@@ -8,4 +8,12 @@ This project is a Tic Tac made using this tecnologies
   - Less for my Css
   - Webpack for my bundle
   - Lodash for some functions
+
+Using it
+  - npm install
+  - npm install -g cypress && cypress install: installing the cypress
+  - npm start: will serve the application on :3000
+  - npm test: run the Jest tests
+  - cypress run: will run the cypress tests 
   
+
