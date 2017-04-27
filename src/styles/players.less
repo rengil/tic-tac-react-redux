@@ -1,4 +1,5 @@
 .players-container {
+   max-width: 50rem;
   .draw {
     font-size: 2rem;
     margin:2rem;
@@ -9,9 +10,11 @@
     padding: 2rem;
     background-color: #00bfa5;
     color: white;
-    font-size: 3rem;
+    font-size: 2rem;
     border-radius: 2rem;
     box-shadow: 10px 10px 5px #888888;
+    width: 88%;
+    box-sizing : border-box;
   }
 
   .set {
@@ -32,11 +35,12 @@
   .errormessage {
     background-color: #ef5350;
     color: white;
-    padding: 1rem;
-    margin-left:2rem;
-    width: 100%;
+    padding: 1.6rem;
     opacity: 0;
-    min-height: 1.2rem;
+    height: 0;
+    min-height: 1.5rem;
+    font-weight: bold;
+    min-width: 80%;
     &.-show {
       opacity: 1;
       -webkit-transition: all 0.3s ease ;

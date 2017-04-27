@@ -1,21 +1,31 @@
-.players-leaderboard {
-  .title {
-    color: white;
-    font-size: 1.5rem;
+@media (max-width: 768px)
+{
+  .players-leaderboard {
+    display: none;
   }
+}
 
-  .list .player {
-    color: white;
-    font-size: 1.2rem;
-    opacity: 0;
-    -webkit-transition: all 0.7s ease ;
-    -moz-transition: all 0.7s ease;
-    -o-transition: all 0.7s ease;
-    -ms-transition: all 0.7s ease-in;
-    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25,1);
+@media (min-width: 768px)
+  {
+  .players-leaderboard {
+    .title {
+      color: white;
+      font-size: 1.5rem;
+    }
 
-    &.-show{
-      opacity: 1;
+    .list .player {
+      color: white;
+      font-size: 1.2rem;
+      opacity: 0;
+      -webkit-transition: all 0.7s ease ;
+      -moz-transition: all 0.7s ease;
+      -o-transition: all 0.7s ease;
+      -ms-transition: all 0.7s ease-in;
+      transition-timing-function: cubic-bezier(0.25, 0.1, 0.25,1);
+
+      &.-show{
+        opacity: 1;
+      }
     }
   }
 }

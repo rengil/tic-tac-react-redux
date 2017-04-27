@@ -12,6 +12,12 @@ module.exports = {
         'webpack/hot/only-dev-server',
         path.join(__dirname, 'src/main.js')
     ],
+    devServer: {
+      pubic: " bulbasaur-S451LA", // Your Computer Name
+      port: 8080
+    },
+
+
     output: {
         path: path.join(__dirname, '/dist/'),
         filename: '[name].js',
@@ -39,6 +45,10 @@ module.exports = {
             {
                 test: /\.(less)?$/,
                 loader: 'style!css!less'
+            },
+            {
+                test: /\.(scss)?$/,
+                loaders: ["style-loader", "css-loader", "sass-loader"]
             },
 
             {

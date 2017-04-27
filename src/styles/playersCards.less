@@ -1,20 +1,30 @@
-.player-card {
-  .player {
-    position: relative;
-    font-size: 2rem;
+@media (max-width: 768px)
+{
+  .player-card {
+    display: none!important;
   }
+}
 
-  .player .icon {
-    position: absolute;
-    font-size: 5rem;
-    bottom:  -25px;
-  }
+@media (min-width: 768px)
+  {
+  .player-card {
+    .player {
+      position: relative;
+      font-size: 2rem;
+    }
 
-  &.-playnext {
-    opacity: 1;
-  }
+    .player .icon {
+      position: absolute;
+      font-size: 5rem;
+      bottom:  -25px;
+    }
 
-  &:not(.-playnext) {
-    opacity: 0.2;
+    &.-playnext {
+      opacity: 1;
+    }
+
+    &:not(.-playnext) {
+      opacity: 0.2;
+    }
   }
 }

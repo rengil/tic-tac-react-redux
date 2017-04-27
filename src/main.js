@@ -11,6 +11,7 @@ import reducers from './reducers';
 import thunk from 'redux-thunk';
 import './styles/style.less';
 import 'webpack-material-design-icons';
+import './styles/bulma.scss';
 
 /* eslint-disable no-underscore-dangle */
 const store = createStore(

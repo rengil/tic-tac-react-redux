@@ -47,33 +47,42 @@ class PlayersContainer extends React.Component {
 
   render() {
     return (
-      <div onKeyPress={this.handleKeyPress} className='players-container'>
+      <div onKeyPress={this.handleKeyPress} className='players-container columns is-multiline'>
         {
-          <p className={`errormessage ${this.props.error ? '-show' : ''}`}> {this.props.error}</p>
+          <div className='column is-11'>
+            <p className={`errormessage ${this.props.error ? '-show' : ''}`}> {this.props.error}</p>
+          </div>
         }
-        <label className='draw' htmlFor='circle'> Name of Player Circle </label>
-        <input
-          ref={(input) => { this.focusInput = input; }}
-          className='player'
-          id='circle'
-          onChange={this.onChangeInput}
-          name='circle'
-          value={this.state.circle}
-          type='text'
-        />
+        <div className='column is-11'>
+        <label className='draw' htmlFor='circle'> Circle </label>
+          <input
+            ref={(input) => { this.focusInput = input; }}
+            className='player'
+            id='circle'
+            onChange={this.onChangeInput}
+            name='circle'
+            value={this.state.circle}
+            type='text'
+            maxLength='10'
+            size='10'
+          />
+        </div>
 
-        <label className='draw' htmlFor='nought'> Name of Player Nought </label>
-        <input
-          className='player'
-          id='nought'
-          onChange={this.onChangeInput}
-          name='nought'
-          value={this.state.nought}
-          type='text'
-        />
+        <div className='column is-11'>
+          <label className='draw' htmlFor='nought'> Nought </label>
+          <input
+            className='player'
+            id='nought'
+            onChange={this.onChangeInput}
+            name='nought'
+            value={this.state.nought}
+            type='text'
+          />
+        </div>
 
-        <button className='set' onClick={this.onSave}> Set players </button>
-
+        <div className='column'>
+          <button className='set' onClick={this.onSave}> Set players </button>
+        </div>
       </div>
     );
   }

@@ -19,7 +19,7 @@ const TicTacToe = props =>
     :
       <div className='main-container'>
         <LeftMenu />
-        <div className='half-row'>
+        <div className='columns'>
           <Player playNext={props.nextDraw === 'circle'} drawType='circle' />
           <Player playNext={props.nextDraw === 'nought'} drawType='nought' />
         </div>
