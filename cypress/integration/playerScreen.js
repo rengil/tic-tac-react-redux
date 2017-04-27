@@ -6,21 +6,21 @@ describe('Players Screen', function() {
 
   context('Players Screen', function(){
     it('Should work if a type two names and then click enter', function() {
-      cy.focused().type('teste');
-      cy.get('#nought').type('Flávia')
+      cy.focused().type('Vader');
+      cy.get('#nought').type('Yoda')
       cy.get('#nought').type("{enter}")
-      cy.get('.square-container>.row>.column>').children().should('have.length', 9);
+      cy.get('.square-container>.columns>.column>').children().should('have.length', 9);
     });
 
     it('Should work as well if I click the button', function() {
-      cy.focused().type('teste');
-      cy.get('#nought').type('Flávia')
+      cy.focused().type('Yoda');
+      cy.get('#nought').type('Vader')
       cy.get('.set').click();
-      cy.get('.square-container>.row>.column>').children().should('have.length', 9);
+      cy.get('.square-container>.columns>.column>').children().should('have.length', 9);
     });
 
     it('Show message when forget to type nought', function() {
-      cy.focused().type('teste');
+      cy.focused().type('Yoda');
       cy.get('#nought').type("{enter}")
       cy.get('.errormessage').should(function($message){
         expect($message).to.have.class("-show")
@@ -29,7 +29,7 @@ describe('Players Screen', function() {
     });
 
     it('Show message when forget to type circle', function() {
-      cy.get('#nought').type('Flávia')
+      cy.get('#nought').type('Yoda')
       cy.get('#nought').type("{enter}")
       cy.get('.errormessage').should(function($message){
         expect($message).to.have.class("-show")
@@ -38,8 +38,8 @@ describe('Players Screen', function() {
     });
 
     it('Two same names get error', function() {
-      cy.focused().type('Flávia');
-      cy.get('#nought').type('Flávia')
+      cy.focused().type('Yoda');
+      cy.get('#nought').type('Yoda')
       cy.get('#nought').type("{enter}")
       cy.get('.errormessage').should(function($message){
         expect($message).to.have.class("-show")

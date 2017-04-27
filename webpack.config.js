@@ -8,15 +8,10 @@ var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: [
-        'webpack-dev-server/client?http://localhost:3000',
+        'webpack-dev-server/client?http://localhost:4000',
         'webpack/hot/only-dev-server',
         path.join(__dirname, 'src/main.js')
     ],
-    devServer: {
-      pubic: " bulbasaur-S451LA", // Your Computer Name
-      port: 8080
-    },
-
 
     output: {
         path: path.join(__dirname, '/dist/'),
@@ -30,9 +25,8 @@ module.exports = {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-          compress: { warnings: false}
-        })
+        new webpack.DefinePlugin({
+          'process.env.NODE_ENV': JSON.stringify('development')})
     ],
     module: {
         loaders: [

@@ -40,7 +40,7 @@ class Leaderboard extends React.Component {
     })
   }
 
-  render () {
+  render() {
     return (
       <div className='players-leaderboard'>
         <h1 className='title'> Leaderboards </h1>
