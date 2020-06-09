@@ -24,7 +24,7 @@
     "redux-combine-actions": "^0.1.2",
     "redux-thunk": "^2.2.0"
   },
-  "devDependencies": {
+  "devDependencies": {web
     "autoprefixer": "^6.3.6",
     "babel-core": "^6.8.0",
     "babel-eslint": "^6.0.4",
@@ -36,7 +36,7 @@
     "bulma": "^0.4.1",
     "css-loader": "^0.28.0",
     "cypress": "^0.10.1",
-    "eslint": "^3.19.0",
+    "eslint": "^4.18.2",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jest": "^19.0.1",
@@ -50,13 +50,13 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
     "node-sass": "^4.5.2",
-    "npm": "^4.5.0",
+    "npm": "^6.13.3",
     "react-redux": "^4.4.8",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
     "uglifyjs-webpack-plugin": "^0.4.3",
     "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.5",
+    "webpack-dev-server": "^3.1.11",
     "webpack-material-design-icons": "^0.1.0"
   }
 }
