@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { tickSquareAction, checkEndGame } from '../actions/TicTacToe';
-import Icon from '@material-ui/core/Icon';
 
 /**
  * Is the Square in the TIC TAC TOE
