@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import '../styles/leaderboard.less';
+import '../styles/leaderboard.scss';
 
 /**
  * Leaderboard contain the wins(by player) and draws

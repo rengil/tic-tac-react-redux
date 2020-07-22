@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/leftmenu.less';
+import '../styles/leftmenu.scss';
 import { resetAction } from '../actions/TicTacToe';
 import { resetPlayersAction } from '../actions/Players';
 import Leaderboard from './Leaderboard';

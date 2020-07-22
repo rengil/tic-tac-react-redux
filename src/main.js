@@ -9,8 +9,7 @@ import { Router, Route, IndexRoute  } from 'react-router';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import thunk from 'redux-thunk';
-import './styles/style.less';
-import 'webpack-material-design-icons';
+import './styles/style.scss';
 import './styles/bulma.scss';
 
 /* eslint-disable no-underscore-dangle */

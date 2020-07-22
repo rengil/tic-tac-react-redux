@@ -70,18 +70,21 @@ button:focus {
   border-radius: 1rem;
   box-shadow: 10px 10px 5px #888888;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 
   > .draw i {
     font-size: 5rem;
-    top: ~"calc(50% - 40px)";
-    left: ~"calc(50% - 40px)";
+    top: calc(50% - 40px);
+    left: calc(50% - 40px);
     position: absolute; ;
     font-size: 0px;
     -webkit-transition: all 0.6s ease-in ;
     -moz-transition: all 0.6s ease-in;
     -o-transition: all 0.6s ease-in;
-    -ms-transition: all 0.6s ease-in;
+    transition: all 0.6s ease-in;
     transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 
@@ -93,10 +96,7 @@ button:focus {
     background-color: #008e76;
     &.-win{
       background-color: #ffa726;
-      -webkit-animation-name: infinite-spinning;
-    - webkit-animation-duration: 0.5s;
-      -webkit-animation-timing-function: linear;
-      -webkit-animation-direction: alternate;
+      animation: infinite-spinning 2.4s infinite;
     }
     .draw i {
       font-size: 5rem;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setPlayersAction } from '../actions/Players';
-import '../styles/players.less';
+import '../styles/players.scss';
 
 /**
  * Form that has the players name to be defined

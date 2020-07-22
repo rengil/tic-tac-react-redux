@@ -7,7 +7,7 @@ import errors from '../constants/Errors';
 * case: RESET_PLAYERS
          reset the circle and nought player names
  */
-function playerReducer(state = {}, action) {
+function playerReducer(state = JSON.parse(localStorage.getItem('state')) || {}, action) {
   switch (action.type) {
     case types.SET_PLAYERS: {
       if (!action.circle) {
@@ -28,11 +28,15 @@ function playerReducer(state = {}, action) {
         });
       }
 
-      return Object.assign({}, state, {
+      const nextState = {
         circle: action.circle,
         nought: action.nought,
         error: undefined
-      });
+      }
+
+      localStorage.setItem('state', JSON.stringify(nextState));
+
+      return Object.assign({}, state, nextState);
     }
 
     case types.RESET_PLAYERS: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/winner.less';
+import '../styles/winner.scss';
 
 /**
  * Message that appears when the game has ended

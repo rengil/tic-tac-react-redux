@@ -1,7 +1,9 @@
 import _ from 'lodash';
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
 import { tickSquareAction, checkEndGame } from '../actions/TicTacToe';
+import Icon from '@material-ui/core/Icon';
 
 /**
  * Is the Square in the TIC TAC TOE
@@ -55,11 +57,14 @@ class Square extends React.Component {
       >
 
         <div className={'draw'}>
-          <i className='material-icons'>
-            {this.props.squares[this.props.position] === 'circle' ?
-              'radio_button_unchecked' : 'clear'
+          <p style={{ fontSize: 42 }}>
+            {this.props.squares[this.props.position] === 'circle' &&
+              '⭕️'
             }
-          </i>
+            {this.props.squares[this.props.position] === 'nought' &&
+              'X'
+            }
+          </p>
         </div>
       </div>
     );

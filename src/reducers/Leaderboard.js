@@ -6,7 +6,7 @@ import types from '../constants/ActionTypes';
  *       1 - if not exists, add a new record in the array of records
  *       2 - or if exists, increment a existing record
  */
-function leaderboard(state = { records: [] }, action) {
+function leaderboard(state = { records: JSON.parse(localStorage.getItem('records')) || [] }, action) {
   switch (action.type) {
     case types.ADD_TO_LEADERBOARD: {
       let records = state.records.slice();
@@ -26,6 +26,7 @@ function leaderboard(state = { records: [] }, action) {
 
       records.push(record);
 
+      localStorage.setItem('records', JSON.stringify(records));
       return Object.assign({}, state, {
         records
       });
