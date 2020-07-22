@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/playersCards.scss';
-import Icon from '@material-ui/core/Icon';
 
 /**
  * A <Player> is the component that has the name of the player with its draw type.
@@ -12,7 +11,7 @@ const Player = props =>
   <div className={`column player-card ${(props.playNext ? '-playnext' : '')}`}>
     {props.drawType === 'circle' ?
       <p className='player'>
-        {props.circle} is <b> Circle ⭕️
+        {props.circle} is <b> Circle <span role="img" aria-label="circle"> ⭕️</span>
         </b>
       </p> :
       <p className='player'>

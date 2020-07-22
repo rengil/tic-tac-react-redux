@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import PropTypes from 'prop-types';
 import SquareContainer from './SquareContainer';
 import PlayersContainer from './PlayersContainer';
 import EndGameMessage from '../components/EndGameMessage';

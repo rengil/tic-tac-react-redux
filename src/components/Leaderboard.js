@@ -12,7 +12,7 @@ class Leaderboard extends React.Component {
   constructor(props) {
     super(props);
     const records = props.records;
-    records.map(record => {
+    records.forEach(record => {
       record.animation = '-show';
     })
     this.state = {
@@ -23,7 +23,7 @@ class Leaderboard extends React.Component {
   /** requestAnimationFrame and state combined to get animation*/
   componentWillReceiveProps(nextProps) {
     const records = nextProps.records;
-    records.map(record => {
+    records.forEach(record => {
       record.animation = '';
     });
 
@@ -33,7 +33,7 @@ class Leaderboard extends React.Component {
 
     requestAnimationFrame(() => {
       const animateRecords = this.state.records;
-      animateRecords.map(record => {
+      animateRecords.forEach(record => {
         record.animation = '-show';
         this.setState( {records} );
       })
